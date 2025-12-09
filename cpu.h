@@ -6,9 +6,11 @@
 #include "exec.h"
 
 uint16_t getinstr(){
-    	return memory[pc];
+    	return getword(pc);
 }
-void next(){++pc;}
+void next(){
+	pc += 2;
+}
 
 uint16_t execinstr(){ // 0: success, 1: exit, 2: error
 	uint16_t instr = getinstr();
@@ -47,6 +49,18 @@ uint16_t execinstr(){ // 0: success, 1: exit, 2: error
 		case MOVH:
 			e_movh((0xf0 & operand) >> 4, (0x0f) & operand);
 			break;
+		case ADDN:
+			next();
+			e_addn((0xf0 & operand) >> 4, getinstr());
+			break;
+		case SUBN:
+			next();
+			e_subn((0xf0 & operand) >> 4, getinstr());
+			break;
+		case MOVN:
+			next();
+			e_movn((0xf0 & operand) >> 4, getinstr());
+			break;
 		default:
 			printf("INVALID OPERATOR: %x\n", operator);
 			return 2;
@@ -64,12 +78,4 @@ void exec(){
 			printf("Execution stopped due to an error.\n");
 		next();
 	}
-	printf("AX:%x\n", ax);
-	printf("BX:%x\n", bx);
-	printf("CX:%x\n", cx);
-	printf("DX:%x\n", dx);
-	printf("PC:%x\n", pc);
-	printf("FLAGSA:%x\n", flagsa);
-	printf("FLAGSB:%x\n", flagsb);
-	printf("STACK:%x\n", stack);
 }

@@ -13,6 +13,9 @@ enum opcode{
 	ADDH, // 0x08
 	SUBH, // 0x09
 	MOVH, // 0x0A
+	ADDN, // 0x0B
+	SUBN, // 0x0C
+	MOVN, // 0x0D
 };
 
 #endif

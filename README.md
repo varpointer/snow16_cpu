@@ -9,6 +9,7 @@ INCOMPLETE
 ## instruction set
 Syntax: `0xOPCODE` `NAME argument.type .type`\
 if the argument is an integer, the type will be its bitsize. Any arguments that are ignored are left unnamed
+`,,` means the beginning of a new word
 ### `0x00` `VOID .8`
 Does literally nothing.
 ### `0x01` `ADDR reg1.reg reg2.reg`
@@ -31,3 +32,9 @@ Adds `val` leftshifted by 4 bits to `reg`
 Subtracts `val` leftshifted by 4 bits from `reg`
 ### `0x0A` `MOVH reg.reg val.4`
 Assigns `val` to the 5-8th bits from the bottom of `reg`
+### `0x0B` `ADDN reg.reg .4 ,, val.16`
+Adds `val` to `reg`
+### `0x0C` `SUBN reg.reg .4 ,, val.16`
+Subtracts `val` from `reg`
+### `0x0D` `MOVN reg.reg .4 ,, val.16`
+Assigns `val` to `reg`

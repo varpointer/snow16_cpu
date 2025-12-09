@@ -58,4 +58,19 @@ enum execres e_movr(uint16_t reg1, uint16_t reg2) {
 	return EXEC_SUCCESS;
 }
 
+enum execres e_movn(uint16_t reg, uint16_t num) {
+	setreg((enum register_) reg, num);
+	return EXEC_SUCCESS;
+}
+
+enum execres e_addn(uint16_t reg, uint16_t num) {
+	setreg((enum register_)reg, getreg(reg)+num);
+	return EXEC_SUCCESS;
+}
+
+enum execres e_subn(uint16_t reg, uint16_t num) {
+	setreg((enum register_)reg, getreg(reg)-num);
+	return EXEC_SUCCESS;
+}
+
 #endif

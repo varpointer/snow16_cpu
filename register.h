@@ -7,7 +7,7 @@ enum register_: uint16_t{
     	AX = 0x00, // 0x0
     	AH, // 0x1
     	AL, // 0x2
-   	BX, // 0x3
+		BX, // 0x3
     	BH, // 0x4
     	BL, // 0x5
     	CX, // 0x6
@@ -15,10 +15,10 @@ enum register_: uint16_t{
     	CL, // 0x8
     	DX, // 0x9
     	DH, // 0xA
- 	DL, // 0xB
-   	PC, // 0xC
+		DL, // 0xB
+		PC, // 0xC
     	FLAGSA, // 0xD
-	FLAGSB, // 0xE
+		FLAGSB, // 0xE
     	STACK, // 0xF
 };
 
